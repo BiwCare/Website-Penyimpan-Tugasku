@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Donecuy adalah planner harian sederhana untuk mengatur fokus dan menyelesaikan tugas.">
+    <title>Donecuy - Planner Harian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="page-shell">
+        <header class="topbar">
+            <a class="brand" href="#top" aria-label="Donecuy home"><span>donecuy</span></a>
+            <div class="topbar-actions"><span class="today-label" id="todayLabel"></span><button class="icon-button"
+                    id="themeToggle" type="button" aria-label="Ganti tema">Tema</button></div>
+        </header>
+
+        <main id="top">
+            <section class="hero-section">
+                <div class="hero-copy">
+                    <p class="eyebrow"><span class="eyebrow-dot"></span> Ruang fokusmu</p>
+                    <h1>Hari ini, satu<br><em>langkah</em> lebih dekat.</h1>
+                    <p class="hero-text">Rencanakan hal penting, kerjakan dengan tenang, dan lihat progresmu tumbuh.</p>
+                </div>
+                <div class="progress-orbit" aria-label="Progress tugas hari ini">
+                    <div class="orbit-inner"><strong id="progressPercent">0%</strong><span>selesai</span></div>
+                </div>
+            </section>
+
+            <section class="stats-row" aria-label="Ringkasan tugas">
+                <div class="stat-item"><span class="stat-value" id="totalCount">0</span><span class="stat-label">total
+                        tugas</span></div>
+                <div class="stat-divider"></div>
+                <div class="stat-item"><span class="stat-value accent" id="doneCount">0</span><span
+                        class="stat-label">sudah selesai</span></div>
+                <div class="stat-divider"></div>
+                <div class="stat-item"><span class="stat-value" id="leftCount">0</span><span
+                        class="stat-label">tersisa</span></div>
+            </section>
+
+            <section class="workspace" aria-label="Daftar tugas">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-kicker">Daftar hari ini</p>
+                        <h2>Hal yang ingin kamu selesaikan</h2>
+                    </div><span class="task-date" id="fullDate"></span>
+                </div>
+                <form class="add-task" id="taskForm">
+                    <label class="sr-only" for="taskInput">Tulis tugas baru</label>
+                    <input id="taskInput" type="text" placeholder="Tulis tugas baru..." maxlength="80"
+                        autocomplete="off" required>
+                    <select id="priorityInput" aria-label="Prioritas tugas">
+                        <option value="normal">Normal</option>
+                        <option value="high">Penting</option>
+                        <option value="low">Santai</option>
+                    </select>
+                    <button class="add-button" type="submit">Tambah</button>
+                </form>
+                <div class="list-toolbar">
+                    <div class="filters" role="tablist" aria-label="Filter tugas"><button class="filter-button active"
+                            data-filter="all" type="button">Semua</button><button class="filter-button"
+                            data-filter="active" type="button">Belum selesai</button><button class="filter-button"
+                            data-filter="done" type="button">Selesai</button></div><button class="clear-button"
+                        id="clearDone" type="button">Bersihkan selesai</button>
+                </div>
+                <div class="task-list" id="taskList" aria-live="polite"></div>
+                <div class="empty-state" id="emptyState" hidden>
+                    <h3>Ruang ini masih kosong</h3>
+                    <p>Tambahkan satu tugas kecil untuk memulai harimu.</p>
+                </div>
+            </section>
+        </main>
+        <footer><span>DONECUY / 2026</span><span>dibuat untuk hari yang lebih ringan</span></footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
